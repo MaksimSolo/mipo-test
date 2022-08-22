@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo} from 'react';
-import s from '../../App.module.scss';
+import s from './StudyPrograms.module.scss';
 import {useSelector} from "react-redux";
 import {ProgramsType} from "../../api/programs-api";
 import {SetProgramsTC} from "../../store/programsReducer";
@@ -18,21 +18,20 @@ export const StudyPrograms = () => {
             .filter(p => p.specializedSubjects.length >= 10)
             .slice(0, 5)
             .map(p => {
-                return <div key={p._id}>
-                    <div><span>{p.title}</span></div>
-                    <div>
-                        <Modules
-                            numberOfModules={2}
-                            key={p._id}
-                            programID={p._id}/>
-                    </div>
-                </div>
+                return <section className={s.program}
+                                key={p._id}>
+                    <h3 className={s.programTitle}>
+                        {p.title}
+                    </h3>
+                    <Modules
+                        numberOfModules={2}
+                        key={p._id}
+                        programID={p._id}/>
+                </section>
             })
         , [allPrograms])
 
-    return (
-        <div className={s.program}>
-            {programsForRender}
-        </div>
-    );
+    return <>
+        {programsForRender}
+    </>
 };

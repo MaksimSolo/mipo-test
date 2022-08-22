@@ -1,0 +1,150 @@
+@import "./module-mixins";
+
+.module {
+  padding-top: 29.4px;
+  display: flex;
+  width: 615px;
+
+  &:not(:last-child) {
+    margin-right: 45.63px;
+  }
+
+  .mobileView {
+    display: flex;
+    align-items: center;
+    height: 51px;
+    width: 100%;
+    background: #F7F7F7;
+
+    .imgPlus, .imgMinus, .mobileSpan {
+      margin-left: 25px;
+    }
+
+    .imgPlus {
+      height: 18px;
+      width: 18px;
+    }
+
+    .imgMinus {
+      display: none;
+      height: 2px;
+      width: 18px;
+    }
+
+    .mobileSpan {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 23.4px;
+    }
+
+    @media screen and(min-width: 570px) {
+      display: none;
+    }
+  }
+
+  .desktopSpan {
+    position: relative;
+    white-space: nowrap;
+    margin-right: 16%;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38.4px;
+
+    &::before {
+      position: absolute;
+      content: '';
+      background: #FF3535;
+      border: 2px solid #FF3535;
+      top: -30px;
+      width: 150px;
+    }
+  }
+
+  ul {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19.2px;
+
+    li {
+      position: relative;
+      list-style-type: none;
+
+      &::before {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        left: -15px;
+        top: 7px;
+        content: '';
+        background: #FF3535;
+        border-radius: 60px;
+      }
+    }
+  }
+}
+
+@include medium {
+  .module {
+    flex-wrap: wrap;
+
+    ul {
+      margin: 35px 15px;
+    }
+  }
+}
+
+@include small {
+  .module {
+    padding-top: 0;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+
+    .mobileView {
+      transition-duration: 1s;
+      transition-property: background;
+    }
+
+    .desktopSpan {
+      display: none;
+    }
+
+    ul {
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 19.5px;
+      margin: 17px 0 0 15px;
+      display: none;
+    }
+  }
+  .show {
+    @include show {
+      .mobileView {
+        transition-duration: 1s;
+        transition-property: background;
+        background: #FF3535;
+
+        .imgPlus {
+          display: none;
+        }
+
+        .imgMinus {
+          display: flex;
+          background: #FFFFFF;
+        }
+
+        .mobileSpan {
+          color: #FFFFFF;
+        }
+      }
+
+      ul {
+        display: block;
+      }
+    }
+  }
+}
+

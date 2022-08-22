@@ -1,0 +1,19 @@
+@import "./src/scss/variables";
+
+
+@mixin medium() {
+  @media screen and (max-width: $breakpoint_md) {
+    @content
+  }
+}
+
+@mixin small() {
+  @media screen and (max-width: $breakpoint_sml) {
+    @content
+  }
+}
+
+@mixin show() {
+  @content
+}
+

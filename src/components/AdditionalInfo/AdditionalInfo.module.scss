@@ -1,0 +1,114 @@
+
+.additionalInfo {
+  color: #FFFFFF;
+  margin: 150px 0;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1023px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 45px 0;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 43.2px;
+    @media screen and(max-width: 570px) {
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 30px;
+    }
+  }
+
+  .practice {
+    padding: 52px 71px;
+    width: 628px;
+    min-height: 293px;
+    background: #FF3535;
+    position: relative;
+    @media screen and(max-width: 1023px) {
+      min-height: 230px;
+    }
+    @media screen and(max-width: 570px) {
+      padding: 31px 17px;
+      width: 100%;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 43px;
+      height: 43px;
+      right: -0.3px;
+      top: -0.3px;
+      background: linear-gradient(45deg, #CD1800 50%, #FFFFFF 50%);
+      @media screen and(max-width: 570px) {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 30px;
+      @media screen and(max-width: 1023px) {
+        margin-right: 0;
+      }
+    }
+
+    p {
+      margin-top: 24px;
+      margin-left: 5px;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  .attestation {
+    padding: 52px 71px;
+    width: 628px;
+    min-height: 293px;
+    background: #2D2C2A;
+    @media screen and(max-width: 1023px) {
+      margin-top: 23px;
+    }
+    @media screen and(max-width: 570px) {
+      padding: 31px 17px;
+      width: 100%;
+      min-height: 230px;
+    }
+
+    ul {
+      margin-top: 24px;
+      margin-left: 15px;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 26px;
+
+      li {
+        position: relative;
+        list-style-type: none;
+
+        &:not(:last-child) {
+          margin-bottom: 10px;
+          @media screen and(max-width: 570px) {
+            margin-bottom: 15px;
+          }
+        }
+
+        &::before {
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          left: -15px;
+          top: 10px;
+          content: '';
+          background: #FF3535;
+          border-radius: 60px;
+        }
+      }
+    }
+  }
+}
+
